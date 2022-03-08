@@ -1,7 +1,19 @@
 import '../styles/globals.css'
+import './signup/signup.css'
+import './login/login.css'
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import '../components/Feed.css'
+import '../components/Profile.css'
+import AuthWrapper from '../context/auth'
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return (
+    <AuthWrapper>
+       {/* Now this app part is the children of auth wrapper */}
+      <Component {...pageProps} />
+    </AuthWrapper>
+  
+  )
 }
 
 export default MyApp
