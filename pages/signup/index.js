@@ -54,7 +54,8 @@ function Index() {
               name: name,
               email: email,
               uid: userFirebase.user.uid,
-              photoUrl: downloadURL
+              photoUrl: downloadURL,
+              posts: []
             }
             setDoc(doc(db, "users", userFirebase.user.uid), obj);
           });

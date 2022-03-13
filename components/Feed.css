@@ -47,14 +47,15 @@
     width: 20rem;
     margin-bottom: 0.4rem;
     position: relative;
+    border-radius: 30px;
 }
 
 .post-container > video{
     height: 77vh;
     width: 20rem;
     object-fit: contain;
-    background-color: aqua;
-    border-radius: 25px;
+    /* background-color: aqua; */
+    border-radius: 30px;
 }
 .videos-info{
     position: absolute;
@@ -68,14 +69,16 @@
     display: flex;
     justify-content: flex-start;
     width:70%;
+    margin-left: 1rem;
 }
 .avatar-container > p{
-    margin-left:0.7rem;
+    margin-left: 0.7rem;
 }
 .post-like{
     height:3rem; 
     width: 20%;
     display: flex;
+    margin-right: 1rem;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;

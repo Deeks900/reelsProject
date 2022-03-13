@@ -18,10 +18,11 @@ import ExploreIcon from "@mui/icons-material/Explore";
 import HomeIcon from "@mui/icons-material/Home";
 import { useRouter } from "next/router";
 // const settings = ['Profile', 'Logout'];
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../context/auth";
+import Link from 'next/Link';
 
-const Navbar = () => {
+const Navbar = ({userData}) => {
   const { logout } = useContext(AuthContext);
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -78,7 +79,7 @@ const Navbar = () => {
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar
                   alt="Remy Sharp"
-                  src="/static/images/avatar/2.jpg"
+                  src= {userData?.photoUrl}
                   sx={{ margin: "0.5rem" }}
                 />
               </IconButton>
@@ -100,7 +101,9 @@ const Navbar = () => {
               onClose={handleCloseUserMenu}
             >
               <MenuItem onClick={handleCloseUserMenu}>
+                <Link href="/profile">
                 <Typography textAlign="center">Profile</Typography>
+                </Link>
               </MenuItem>
 
               <MenuItem
