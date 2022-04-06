@@ -5,6 +5,7 @@ import { AuthContext } from '../context/auth';
 import { arrayUnion, arrayRemove, doc, serverTimestamp, setDoc, updateDoc } from 'firebase/firestore';
 import { db } from '../firebase';
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
+import { collection, onSnapshot, query, orderBy } from 'firebase/firestore'
 
 function Post({postData, userData}){
     console.log(postData.likes);
@@ -22,7 +23,7 @@ function Post({postData, userData}){
 
     const handleClick = ()=>{
         if(!like){
-            updateDoc(doc(db, "posts", props.postData.postId), {
+            updateDoc(doc(db, "posts", postData.postId), {
                 likes: arrayUnion(user.uid)
             })
         }
@@ -34,7 +35,11 @@ function Post({postData, userData}){
     }
     return (
         <div className="post-container">
-        <video src={postData.postUrl}/>
+        <video 
+        src={postData.postUrl}
+          autoPlay={"autoplay"}
+          preLoad="auto"
+          loop />
         <div className="videos-info">
             <div className="avatar-container">
             <Avatar alt="Remy Sharp" src={postData.profileUrl} sx={{margin:"0.5rem"}}/>

@@ -21,7 +21,7 @@
 .profile-videos > video{
     width: 10rem;
     height: 20rem;
-    padding: 0.5 rem;
+    padding: 0.6rem;
 }
 
 @media only screen and (max-width:500px){

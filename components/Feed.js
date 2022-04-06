@@ -11,14 +11,14 @@ import Post from './Post';
  
 function Feed() {
     const [posts, setPosts] = useState([]);
-    const user = useContext(AuthContext)
-    // console.log(user);
+    const {user} = useContext(AuthContext)
+    console.log("Hey"+user);
     const [userData, setUserData] = useState({})
     // Jab bhi user ki state update hogi tab ye useState chalega
     useEffect(()=>{
         // console.log(user.user.uid)
         
-        const unsub = onSnapshot(doc(db, "users", user.user.uid), (doc)=>{
+        const unsub = onSnapshot(doc(db, "users", user.uid), (doc)=>{
             // console.log(doc.data());
             setUserData(doc.data())
         })

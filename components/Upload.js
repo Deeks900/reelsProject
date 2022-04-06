@@ -75,6 +75,8 @@ function Upload({userData}){
           })
   
           //firestore 
+          setLoading(false);
+          setProgress(0);
           //  setDoc(doc(db, "users", user.user.uid), obj)
         });
       }
